@@ -36,14 +36,16 @@ class GpioPinSelect {
       if (index % 2 == 0) {
         return (`
           <div class="gpio-pin-select--first-label">${pin.name}</div>
-          <div class="gpio-pin-select--first-radio">
+          <div class="gpio-pin-select--radio gpio-pin-select--first-radio">
             <input type="radio" name="gpio-pin-select--gpio" id="${pin.id}" value="${pin.id}">
+            <label for="${pin.id}"><span></span></label>
           </div>
         `);
       }
       return (`
-        <div class="gpio-pin-select--second-radio">
+        <div class="gpio-pin-select--radio gpio-pin-select--second-radio">
           <input type="radio" name="gpio-pin-select--gpio" id="${pin.id}" value="${pin.id}">
+          <label for="${pin.id}"><span></span></label>
         </div>
         <div class="gpio-pin-select--second-label">${pin.name}</div>
       `);

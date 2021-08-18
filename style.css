@@ -1,20 +1,35 @@
 .gpio-pin-select--raspberry {
-  width: 300px;
-  height: 400px;
+  width: 400px;
+  height: 500px;
   background-color: #2A7061;
   position: relative;
   margin: 30px;
+  border-radius: 10px;
+  border: solid 3px #E1DA14;
 }
 
 .gpio-pin-select--pins {
   width: 150px;
-  height: 450px;
+  height: 455px;
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   right: -40px;
   top: -25px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr 20px 20px 1fr;
+  grid-template-rows: repeat(20, 18px);
+  column-gap: 5px;
+  row-gap: 5px;
+  padding: 45px 10px;
+  border-radius: 20px;
+}
+
+.gpio-pin-select--first-label {
+  text-align: end;
+}
+
+.gpio-pin-select--second-label {
+  text-align: start;
 }
 
 .gpio-pin-select--first-label, .gpio-pin-select--second-label {
@@ -35,4 +50,20 @@
 
 .gpio-pin-select--second-label {
   grid-column-start: 4;
+}
+
+.gpio-pin-select--radio input {
+  display: none !important;
+}
+
+.gpio-pin-select--radio input + label span {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  vertical-align: bottom;
+  background-image: url('./radio.svg');
+  background-size: 15px 15px;
+  margin-bottom: 2px;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
