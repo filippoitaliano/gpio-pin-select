@@ -1,0 +1,38 @@
+.gpio-pin-select--raspberry {
+  width: 300px;
+  height: 400px;
+  background-color: #2A7061;
+  position: relative;
+  margin: 30px;
+}
+
+.gpio-pin-select--pins {
+  width: 150px;
+  height: 450px;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  right: -40px;
+  top: -25px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.gpio-pin-select--first-label, .gpio-pin-select--second-label {
+  color: white;
+}
+
+.gpio-pin-select--first-label {
+  grid-column-start: 1;
+}
+
+.gpio-pin-select--first-radio {
+  grid-column-start: 2;
+}
+
+.gpio-pin-select--second-radio {
+  grid-column-start: 3;
+}
+
+.gpio-pin-select--second-label {
+  grid-column-start: 4;
+}

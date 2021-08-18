@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <script src="GpioPinSelect.js"></script>
+  </head>
+
+  <body>
+    <div id="select-01"></div>
+    <script type="text/javascript">
+      const select01 = new GpioPinSelect({
+        wrapperNode: document.getElementById('select-01'),
+        onSelectionChange: () => console.log(),
+      });
+      select01.render();
+    </script>
+  </body>
+</html>
