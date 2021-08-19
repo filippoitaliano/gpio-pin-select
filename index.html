@@ -7,13 +7,15 @@
   </head>
 
   <body>
-    <div id="select-01"></div>
+    <div id="my-select-parent-node"></div>
+
     <script type="text/javascript">
       const select01 = new GpioPinSelect({
-        wrapperNode: document.getElementById('select-01'),
-        onSelectionChange: () => console.log(),
+        parentNode: document.getElementById('my-select-parent-node'),
       });
-      select01.render();
     </script>
+
+    <button onClick="select01.destroy()">Destroy</button>
+    
   </body>
 </html>

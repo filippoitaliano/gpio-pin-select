@@ -7,16 +7,23 @@ class GpioPinSelect {
 
   /**
    * @param {object} props 
-   * @param {string} wrapperNode
+   * @param {string} parentNode
    * @param {onSelectionChange} props.onSelectionChange
    */
   constructor(props) {
-    if (!props.wrapperNode) {
-      throw new Error('You need to specify a wrapperNode to create and render a GpioPinSelect.');
+    if (!props.parentNode) {
+      throw new Error('You need to specify a parentNode to create and render a GpioPinSelect.');
     }
-    this.wrapperNode = props.wrapperNode;
-    this.onSelectionChange = props.onSelectionChange;
+    this.parentNode = props.parentNode;
+
+    this.onSelectionChange = props.onSelectionChange || console.log;
     this.mapping = props.mapping || DEFAULT_MAPPING;
+
+    this.uuid = uuidv4();
+
+    this.onRadioButtonChange = this.onRadioButtonChange.bind(this);
+
+    this.render();
   }
 
   pinsTemplate() {
@@ -52,35 +59,54 @@ class GpioPinSelect {
     }).join('');
   }
 
-  addFormEventListener() {
+  onRadioButtonChange(params) {
+    this.onSelectionChange(params.target.value);
+  }
+
+  addChangeListenersToRadioButtons() {
      document.getElementById('gpio-pin-select--pins-form')['gpio-pin-select--gpio'].forEach((radio) => {
-      radio.addEventListener('change', (params) => {
-        this.onSelectionChange(params.target.value);
-      })
+      radio.addEventListener('change', this.onRadioButtonChange);
+    });
+  }
+
+  removeChangeListenersFromRadioButtons() {
+    document.getElementById('gpio-pin-select--pins-form')['gpio-pin-select--gpio'].forEach((radio) => {
+      radio.removeEventListener('change', this.onRadioButtonChange);
     });
   }
 
   render() {
     const template = `
-      <div class="gpio-pin-select--raspberry">
-        <form id="gpio-pin-select--pins-form">
-          <div class="gpio-pin-select--pins">
-            ${this.pinsTemplate()}
-          </div>
-        </form>
+      <div id="gpio-pin-select--${this.uuid}">
+        <div class="gpio-pin-select--raspberry">
+          <form id="gpio-pin-select--pins-form">
+            <div class="gpio-pin-select--pins">
+              ${this.pinsTemplate()}
+            </div>
+          </form>
+        </div>
       </div>
     `;
 
-    this.wrapperNode.insertAdjacentHTML('beforeend', template);
+    this.parentNode.insertAdjacentHTML('beforeend', template);
 
-    this.addFormEventListener();
+    this.addChangeListenersToRadioButtons();
   }
 
-  updateValue() {}
-
-  destroy() {}
+  destroy() {
+    this.removeChangeListenersFromRadioButtons();
+    document.getElementById(`gpio-pin-select--${this.uuid}`).remove();
+  }
 
 }
+
+const uuidv4 = () => {
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+    var r = (Math.random() * 16) | 0,
+      v = c == "x" ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+};
 
 const DEFAULT_MAPPING = {
   1: '3V3',
