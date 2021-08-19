@@ -67,3 +67,7 @@
   background-repeat: no-repeat;
   cursor: pointer;
 }
+
+.gpio-pin-select--radio input:checked + label span {
+  background-image: url('./radio-checked.svg');
+}
