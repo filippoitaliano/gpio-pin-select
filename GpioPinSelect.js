@@ -7,8 +7,9 @@ class GpioPinSelect {
 
   /**
    * @param {object} props 
-   * @param {string} parentNode
+   * @param {string} props.parentNode
    * @param {onSelectionChange} props.onSelectionChange
+   * @param {object} props.mapping
    */
   constructor(props) {
     if (!props.parentNode) {
