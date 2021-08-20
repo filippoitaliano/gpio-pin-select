@@ -6,7 +6,7 @@ JavaScript component to select gpio pins with an interface.
 
 ## Usage
 
-1. Copy `GpioPinSelect.js`, `radio.svg`, `radio-checked.svg` and `gpio-pin-select.css` in your own project.
+1. Copy `GpioPinSelect.js`, `radio.svg`, `radio-checked.svg`, `default-background.svg`, and `gpio-pin-select.css` in your own project.
 2. Import the component and the styles in your index file:
     ```html
     <head>
