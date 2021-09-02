@@ -15,6 +15,9 @@ class GpioPinSelect {
     if (!props.parentNode) {
       throw new Error('You need to specify a parentNode to create and render a GpioPinSelect.');
     }
+
+    linkGpioPinSelectCss();
+
     this.parentNode = props.parentNode;
 
     this.onSelectionChange = props.onSelectionChange || console.log;
@@ -97,6 +100,7 @@ class GpioPinSelect {
   destroy() {
     this.removeChangeListenersFromRadioButtons();
     document.getElementById(`gpio-pin-select--${this.uuid}`).remove();
+    unlinkGpioPinSelectCss();
   }
 
 }
@@ -151,3 +155,25 @@ const DEFAULT_MAPPING = {
   39: 'GP20',
   40: 'GP21',
 };
+
+function linkGpioPinSelectCss() {
+  const cssLinkId = 'gpio-pin-select-css-link';
+  if (!document.getElementById(cssLinkId)) {
+    const head  = document.getElementsByTagName('head')[0];
+    const link  = document.createElement('link');
+    link.id   = cssLinkId;
+    link.rel  = 'stylesheet';
+    link.type = 'text/css';
+    link.href = './gpio-pin-select.css';
+    link.media = 'all';
+    head.appendChild(link);
+  }
+}
+
+function unlinkGpioPinSelectCss() {
+  const cssLinkId = 'gpio-pin-select-css-link';
+  const link = document.getElementById(cssLinkId);
+  if (link) {
+    link.remove();
+  }
+}

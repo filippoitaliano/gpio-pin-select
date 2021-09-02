@@ -10,7 +10,6 @@ JavaScript component to select gpio pins with an interface.
 2. Import the component and the styles in your index file:
     ```html
     <head>
-      <link rel="stylesheet" href="gpio-pin-select.css" />
       <script src="GpioPinSelect.js"></script>
       <!-- ... -->
     ```
