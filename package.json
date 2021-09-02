@@ -1,0 +1,19 @@
+{
+  "name": "@filippoitaliano/gpio-pin-select",
+  "version": "0.0.1",
+  "description": "Simple component to select raspberry a gpio pin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/filippoitaliano/gpio-pin-select.git"
+  },
+  "author": "filippoitaliano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/filippoitaliano/gpio-pin-select/issues"
+  },
+  "homepage": "https://github.com/filippoitaliano/gpio-pin-select#readme"
+}

@@ -20,7 +20,7 @@ JavaScript component to select gpio pins with an interface.
     mySelect.destroy();
     ```
 
-Open the `index.html` file in a browser to see a quick demo.
+Open the `example.html` file in a browser to see a quick demo.
 
 ---
 
