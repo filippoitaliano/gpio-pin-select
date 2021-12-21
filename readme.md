@@ -1,4 +1,4 @@
-# gpio-pin-select [![npm version](https://badge.fury.io/js/@filippoitaliano%2Fgpio-pin-select.svg)](https://badge.fury.io/js/@filippoitaliano%2Fgpio-pin-select)
+# gpio-pin-select [![npm version](https://badge.fury.io/js/@filippoitaliano%2Fgpio-pin-select.svg)](https://badge.fury.io/js/@filippoitaliano%2Fgpio-pin-select) ![status](https://img.shields.io/badge/status-80%25-orange)
 
 JavaScript component to select gpio pins with an interface.
 
